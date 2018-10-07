@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anhloba <anhloba@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:15 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 09:36:48 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 09:46:12 by anhloba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ int init(WINDOW *wind)
 	noecho();
 	clear();
 	refresh();
+	if(!has_colors())
+	{
+		endwin();
+		std::cout << "ERROR: Terminal does not support color." << std::endl;
+		exit(1);
+	}
+	start_color();
+	init_pair(1, COLOR_BLACK, COLOR_WHITE);
+	init_pair(2, COLOR_BLACK, COLOR_GREEN);
+	init_pair(3, COLOR_WHITE, COLOR_WHITE);
+	init_pair(4, COLOR_YELLOW, COLOR_WHITE);
+	init_pair(5, COLOR_RED, COLOR_WHITE);
+	init_pair(6, COLOR_MAGENTA, COLOR_WHITE);
+
+	wbkgd(wind, COLOR_PAIR(3));
 	attron(COLOR_PAIR(2));
 	box(wind, 0, 0);
 	attroff(COLOR_PAIR(2));
@@ -38,6 +53,7 @@ void run(WINDOW *wind)
 	int row, col, in_c;				/* to store the number of rows and *
 								 * the number of colums of the screen */
 	// getmaxyx(stdscr,row,col);	/* get the number of rows and columns */
+	size_t tick = 0;
 	getmaxyx(stdscr,row,col);
 	Player player((row + 1) / 2, 1, 'o');
 	Game game(row, col);
@@ -54,7 +70,11 @@ void run(WINDOW *wind)
 		if (t1 > t2)
 		{
 			in_c = wgetch(wind);
+			mvaddch(player.getPosY(), player.getPosX() + 1, pl);
+			mvaddch(player.getPosY(), player.getPosX() - 1, pl);
 			mvaddch(player.getPosY(), player.getPosX(), pl);
+			mvaddch(player.getPosY() + 1, player.getPosX(), pl);
+			mvaddch(player.getPosY() - 1, player.getPosX(), pl);
 			switch(in_c)
 			{
 				case 27:
@@ -75,10 +95,28 @@ void run(WINDOW *wind)
 				default:
 					break;
 			}
+			attron(COLOR_PAIR(1));
 			mvaddch(player.getPosY(), player.getPosX(), player.getScin());
+	// mvwaddch(wind, player.getPosY(), player.getPosX() - 1, ACS_LARROW);
+    // mvwaddch(wind, player.getPosY(), player.getPosX() + 1, ACS_RARROW);
+			mvwaddch(wind, player.getPosY() - 1, player.getPosX(), ACS_UARROW);
+		    mvwaddch(wind, player.getPosY() + 1, player.getPosX(), ACS_DARROW);
+			mvwaddch(wind, player.getPosY(), player.getPosX() + 1, ACS_RARROW);
+			attroff(COLOR_PAIR(1));
+			if((tick % 10) / 3) {
+    		    wattron(wind, COLOR_PAIR(tick % 2 ? 5 : 4));
+  			      mvwaddch(wind, player.getPosY(), player.getPosX() - 1, ACS_RARROW);
+    		    wattroff(wind, COLOR_PAIR(tick % 2 ? 5 : 4));
+    		}
+	// usleep(10000);
+			tick++;
+    		wattron(wind, COLOR_PAIR(5));
 			game.redraw();
+		    wattroff(wind, COLOR_PAIR(5));
 			game.generateNew();
+			attron(COLOR_PAIR(2));
 			box(wind, 0, 0);
+			attroff(COLOR_PAIR(2));
 			refresh();
 			if (ex)
 				break;

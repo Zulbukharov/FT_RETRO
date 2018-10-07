@@ -6,13 +6,13 @@
 #    By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/01 13:58:02 by azulbukh          #+#    #+#              #
-#    Updated: 2018/10/07 05:17:51 by azulbukh         ###   ########.fr        #
+#    Updated: 2018/10/07 05:55:41 by azulbukh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	ft_retro
 FLAGS = -Wall -Werror -Wextra
-SRC = main.cpp Object.cpp Player.cpp Game.cpp
+SRC = main.cpp Object.cpp Player.cpp Game.cpp Enemy.cpp
 CC = clang++
 OSRC =	$(SRC:.cpp=.o)
 

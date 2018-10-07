@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:49:10 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 05:24:36 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 06:54:35 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Player::~Player(void)
 	// std::cout << "Player Dead" << std::endl;
 }
 
-Player::Player(int x, int y, char o) : Object(x, y, o)
+Player::Player(int y, int x, char o) : Object(y, x, o)
 {
 	// std::cout << "Player created" << std::endl;
 }

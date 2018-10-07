@@ -6,18 +6,19 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:04 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 05:27:05 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 06:55:45 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Object.hpp"
+#include "Game.hpp"
 
 Object::Object(void)
 {
 	// std::cout << "Object created" << std::endl;
 }
 
-Object::Object(int x, int y, char o)
+Object::Object(int y, int x, char o)
 {
 	// std::cout << "Object created" << std::endl;
 	this->setPosX(x);
@@ -52,6 +53,10 @@ void	Object::setPosX(int x)
 void	Object::setPosY(int y)
 {
 	this->_posY = y;
+	// if (this->_posY <= 1)
+	// 	this->_posY = 1;
+	// else if (this->_posY >= Game::getMaxY() - 1)
+	// 	this->_posY = Game::getMaxY() - 2;
 }
 
 void	Object::setHP(int hp)

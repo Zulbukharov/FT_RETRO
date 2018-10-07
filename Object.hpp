@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:09 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 05:27:10 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 06:53:35 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Object
 	public:
 		Object(void);
 		~Object(void);
-		Object(int x, int y, char o);
+		Object(int y, int x, char o);
 		Object(Object const &other);
 		Object &operator=(Object const &other);
 

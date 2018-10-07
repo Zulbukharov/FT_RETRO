@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:15 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 06:06:37 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 06:48:48 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void run(WINDOW *wind)
 								 * the number of colums of the screen */
 	// getmaxyx(stdscr,row,col);	/* get the number of rows and columns */
 	getmaxyx(stdscr,row,col);
-	Player player(col / 2, row / 2, 'o');
-	Game game(col, row);
+	Player player(row / 2, col / 2, 'o');
+	Game game(row, col);
 	Enemy enemy;
 	game.setPlayer(player);
-	game.setEnemy(enemy);
+	game.setEnemy();
 
 	char pl = ' ';
 
@@ -72,6 +72,7 @@ void run(WINDOW *wind)
 	mvaddch(player.getPosY(), player.getPosX(), player.getScin());
 	game.redraw();
 	usleep(30000);
+	box(wind, 0, 0);
 	refresh();
 	if (ex)
 		break;

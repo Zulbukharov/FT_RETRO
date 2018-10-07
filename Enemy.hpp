@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 05:34:05 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 05:35:11 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 06:52:46 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Enemy : public Object
 	public:
 		Enemy(void);
 		~Enemy(void);
-		Enemy(int x, int y, char o);
+		Enemy(int y, int x, char o);
 		Enemy(Enemy const &other);
 		Enemy &operator=(Enemy const &other);
 };

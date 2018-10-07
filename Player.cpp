@@ -6,16 +6,12 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:49:10 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 12:13:29 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 14:59:49 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Player.hpp"
 
-// Player::Player(void) : Object()
-// {
-// 	// std::cout << "Player created" << std::endl;
-// }
 
 Player::~Player(void)
 {
@@ -39,7 +35,11 @@ Player &Player::operator=(Player const &other)
 {
 	if (this != &other)
 	{
-
+		this->setPosX(other.getPosX());
+		this->setPosY(other.getPosY());
+		this->setHP(other.getHP());
+		this->setScore(other.getScore());\
+		this->setSkin(other.getScin());
 	}
 	return (*this);
 }

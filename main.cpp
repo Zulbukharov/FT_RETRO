@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:15 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 12:50:02 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 15:07:06 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,7 @@ void run(WINDOW *wind)
 {
 	clock_t t1,t2;
 	bool ex;
-	int row, col, in_c;				/* to store the number of rows and *
-								 * the number of colums of the screen */
-	// getmaxyx(stdscr,row,col);	/* get the number of rows and columns */
+	int row, col, in_c;	
 	size_t tick = 0;
 	getmaxyx(stdscr,row,col);
 	Player player((row + 1) / 2, 1, 'o');
@@ -117,6 +115,10 @@ void run(WINDOW *wind)
 			attron(COLOR_PAIR(2));
 			box(wind, 0, 0);
 			attroff(COLOR_PAIR(2));
+			attron(COLOR_PAIR(1));
+			mvwprintw(wind, 2, 2, "[Score][%d]", player.getScore());
+			mvwprintw(wind, 4, 2, "[HitPoints][%d]", player.getHP());
+			attroff(COLOR_PAIR(1));
 			refresh();
 			if (ex)
 				break;
@@ -160,6 +162,5 @@ int	main(int ac, char **av)
 	if(status == 0)
 		run(wind);
 	close();
-	system("leaks ft_retro");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 07:56:42 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 11:51:55 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 15:03:28 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,20 @@ LinkedList::~LinkedList()
 	current = next;
 	}
 	head = NULL;
+}
+
+LinkedList::LinkedList(LinkedList const &other)
+{
+	*this = other;
+}
+
+LinkedList &LinkedList::operator=(LinkedList const &other)
+{
+	if (this != &other)
+	{
+		*this = other;
+	}
+	return (*this);
 }
 
 void LinkedList::add(void)
@@ -60,7 +74,6 @@ void LinkedList::print()
 	int i = 1;
 	while(head)
 	{
-		// std::cout << i << ": " << head->data << std::endl;
 		head = head->next;
 		i++;
 	}

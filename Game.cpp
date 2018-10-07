@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:21 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 12:53:18 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 15:03:35 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Game &Game::operator=(Game const &other)
 {
 	if (this != &other)
 	{
-
+		*this = other;
 	}
 	return (*this);
 }

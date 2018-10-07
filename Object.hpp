@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:09 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 12:12:29 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 14:59:20 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class	Object
 {
 	public:
 		Object(void);
-		~Object(void);
+		virtual ~Object(void);
 		Object(int y, int x, char o);
 		Object(Object const &other);
 		Object &operator=(Object const &other);

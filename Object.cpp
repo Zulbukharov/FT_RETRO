@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:04 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 12:13:21 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 14:59:34 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ Object &Object::operator=(Object const &other)
 {
 	if (this != &other)
 	{
-
+		this->setPosX(other.getPosX());
+		this->setPosY(other.getPosY());
+		this->setHP(other.getHP());
+		this->setScore(other.getScore());
+		this->setSkin(other.getScin());
 	}
 	return (*this);
 }

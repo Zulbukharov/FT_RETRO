@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:42:47 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 12:19:59 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 15:04:33 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ class	Game
 		void	generateNew(void);
 		void	redraw(void);
 		void	shoot(void);
-		// void	shootsE(Object const &enemy);
 	private:
 		static int	_maxX,
 				_maxY;

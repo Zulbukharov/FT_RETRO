@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:42:47 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 09:35:54 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 10:43:50 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "Player.hpp"
 # include "Enemy.hpp"
 # include "Node.hpp"
+# include "Object.hpp"
 
 class	Game
 {
@@ -40,12 +41,17 @@ class	Game
 
 		void	generateNew(void);
 		void	redraw(void);
+		void	shoot(void);
+		// void	shootsE(Object const &enemy);
 	private:
 		static int	_maxX,
 				_maxY;
 		Player	*_player;
 		// Enemy	*_enemyes[10];
 		LinkedList _head;
+		// Object		_shoots[5];
+		LinkedList _shoots;
+		// LinkedList _shootsE;
 };
 
 #endif

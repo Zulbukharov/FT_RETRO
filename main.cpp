@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anhloba <anhloba@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:15 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 09:46:12 by anhloba          ###   ########.fr       */
+/*   Updated: 2018/10/07 11:01:41 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void run(WINDOW *wind)
 
 	char pl = ' ';
 
-	t2 = clock() / 16666;
+	t2 = clock() / 30000;
 	while(1)
 	{
-		t1 = clock() / 16666;
+		t1 = clock() / 30000;
 		if (t1 > t2)
 		{
 			in_c = wgetch(wind);
@@ -92,13 +92,14 @@ void run(WINDOW *wind)
 				case KEY_RIGHT:
 					player.setPosX(player.getPosX() + 1);
 					break;
+				case ' ':
+					game.shoot();
+					break;
 				default:
 					break;
 			}
 			attron(COLOR_PAIR(1));
 			mvaddch(player.getPosY(), player.getPosX(), player.getScin());
-	// mvwaddch(wind, player.getPosY(), player.getPosX() - 1, ACS_LARROW);
-    // mvwaddch(wind, player.getPosY(), player.getPosX() + 1, ACS_RARROW);
 			mvwaddch(wind, player.getPosY() - 1, player.getPosX(), ACS_UARROW);
 		    mvwaddch(wind, player.getPosY() + 1, player.getPosX(), ACS_DARROW);
 			mvwaddch(wind, player.getPosY(), player.getPosX() + 1, ACS_RARROW);
@@ -120,7 +121,7 @@ void run(WINDOW *wind)
 			refresh();
 			if (ex)
 				break;
-			t2 = clock() / 16666;
+			t2 = clock() / 30000;
 		}
 	}
 }

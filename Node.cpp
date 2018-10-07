@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 07:56:42 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 09:27:52 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 11:51:55 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ void LinkedList::add(void)
 	this->length++;
 }
 
+void LinkedList::add(Player const &other)
+{
+	Object* object = new Object(other.getPosY(), other.getPosX(), '-');
+	object->next = this->head;
+	this->head = object;
+	this->length++;
+}
+
+void LinkedList::add(Object const &other)
+{
+	Object* object = new Object(other.getPosX(), other.getPosY(), '-');
+	object->next = this->head;
+	this->head = object;
+	this->length++;
+}
+
 void LinkedList::print()
 {
 	Object* head = this->head;
@@ -61,3 +77,28 @@ void LinkedList::pop()
 	this->length--;
 	this->head = next_node;
 }
+
+void LinkedList::remove(Object *other)
+{
+	Object *tmp = NULL;
+	if (head == NULL || other == NULL) return;
+
+	if (head == other) {
+		head = (head)->next;
+		delete (other);
+		other = NULL;
+	}
+	else
+	{
+		tmp = head;
+		while (tmp->next && tmp->next != other)
+			tmp = tmp->next;
+		if (tmp->next)
+		{
+			tmp->next = other->next;
+			delete (other);
+			other = NULL;
+		}
+	}
+}
+

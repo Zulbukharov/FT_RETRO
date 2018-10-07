@@ -6,14 +6,14 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 05:33:59 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 07:00:48 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 07:35:18 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Enemy.hpp"
 #include "Game.hpp"
 
-Enemy::Enemy(void) : Object((rand() % Game::getMaxY()) - 1, Game::getMaxX() - 2, 'e')
+Enemy::Enemy(void) : Object((rand() % (Game::getMaxY() - 1)), Game::getMaxX() - 2, 'e')
 {
 	// std::cout << "Enemy created" << std::endl;
 }

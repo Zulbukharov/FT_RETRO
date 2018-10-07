@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:42:47 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 06:42:52 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 09:35:54 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include "Player.hpp"
 # include "Enemy.hpp"
+# include "Node.hpp"
 
 class	Game
 {
@@ -36,14 +37,15 @@ class	Game
 		static int	getMaxY(void);
 		static int	getMaxX(void);
 		Player &getPlayer(void);
-		// Enemy  &getEnemy(void);
 
+		void	generateNew(void);
 		void	redraw(void);
 	private:
 		static int	_maxX,
 				_maxY;
 		Player	*_player;
-		Enemy	*_enemyes[10];
+		// Enemy	*_enemyes[10];
+		LinkedList _head;
 };
 
 #endif

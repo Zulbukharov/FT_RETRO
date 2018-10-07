@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:04 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 06:55:45 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 07:35:07 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,19 @@ Object &Object::operator=(Object const &other)
 void	Object::setPosX(int x)
 {
 	this->_posX = x;
+	if (this->_posX >= Game::getMaxX() - 1)
+		this->_posX = Game::getMaxX() - 2;
+	if (this->_posX <= 1)
+		this->_posX = 1;
 }
 
 void	Object::setPosY(int y)
 {
 	this->_posY = y;
-	// if (this->_posY <= 1)
-	// 	this->_posY = 1;
-	// else if (this->_posY >= Game::getMaxY() - 1)
-	// 	this->_posY = Game::getMaxY() - 2;
+	if (y == Game::getMaxY() - 1)
+		this->_posY = Game::getMaxY() - 2;
+	if (this->_posY <= 1)
+		this->_posY = 1;
 }
 
 void	Object::setHP(int hp)

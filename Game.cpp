@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:21 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 07:01:19 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 09:19:22 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	Game::setPlayer(Player &l)
 
 void	Game::setEnemy(void)
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		this->_enemyes[i] = new Enemy;
+		this->_head.add();
 	}
 }
 
@@ -86,14 +86,27 @@ Player &Game::getPlayer(void)
 // 	return (*this->_enemyes);
 // }
 
+void	Game::generateNew(void)
+{
+	if (this->_head.length <= 20 && (rand() % 30 == 2))
+		this->_head.add();
+}
+
 void	Game::redraw(void)
 {
-	for (int i = 0; i < 10; i++)
+	Object* head = _head.head;
+	while(head)
 	{
-		mvaddch(this->_enemyes[i]->getPosY(), this->_enemyes[i]->getPosX(), ' ');
-		// if (this->_enemyes[i]->getPosX() > 1)
-			this->_enemyes[i]->setPosX(this->_enemyes[i]->getPosX() - 1);
-		mvaddch(this->_enemyes[i]->getPosY(), this->_enemyes[i]->getPosX(), this->_enemyes[i]->getScin());
+		mvaddch(head->getPosY(), head->getPosX(), ' ');
+		if (head->getPosX() <= 1)
+		{
+			head->setPosX(_maxX - 1);
+			head->setPosY(rand() % _maxY);
+		}
+		else
+			head->setPosX(head->getPosX() - 1);
+		mvaddch(head->getPosY(), head->getPosX(), head->getScin());	
+		head = head->next;
 	}
 }
 

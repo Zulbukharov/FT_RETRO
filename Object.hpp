@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:09 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 06:53:35 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 08:02:47 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class	Object
 		void	setHP(int hp);
 		void	setScore(int score);
 		char	getScin(void) const;
+		Object *next;
 	private:
 		int		_posX,
 				_posY,

@@ -6,16 +6,16 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:49:10 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 06:54:35 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 07:27:29 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Player.hpp"
 
-Player::Player(void) : Object()
-{
-	// std::cout << "Player created" << std::endl;
-}
+// Player::Player(void) : Object()
+// {
+// 	// std::cout << "Player created" << std::endl;
+// }
 
 Player::~Player(void)
 {
@@ -24,6 +24,8 @@ Player::~Player(void)
 
 Player::Player(int y, int x, char o) : Object(y, x, o)
 {
+	this->setPosY(20);
+	// std::cout << "Player created" << std::endl;
 	// std::cout << "Player created" << std::endl;
 }
 

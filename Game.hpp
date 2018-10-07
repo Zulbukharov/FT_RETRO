@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:42:47 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 10:43:50 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 12:19:59 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,8 @@ class	Game
 		static int	_maxX,
 				_maxY;
 		Player	*_player;
-		// Enemy	*_enemyes[10];
 		LinkedList _head;
-		// Object		_shoots[5];
 		LinkedList _shoots;
-		// LinkedList _shootsE;
 };
 
 #endif

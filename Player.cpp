@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:49:10 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 07:27:29 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 12:13:29 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Player::~Player(void)
 
 Player::Player(int y, int x, char o) : Object(y, x, o)
 {
-	this->setPosY(20);
+	this->setHP(3);
+	this->setScore(0);
 	// std::cout << "Player created" << std::endl;
 	// std::cout << "Player created" << std::endl;
 }

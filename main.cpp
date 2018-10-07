@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:15 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 11:01:41 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 12:50:02 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void run(WINDOW *wind)
 	char pl = ' ';
 
 	t2 = clock() / 30000;
-	while(1)
+	while(player.getHP())
 	{
 		t1 = clock() / 30000;
 		if (t1 > t2)
@@ -109,7 +109,6 @@ void run(WINDOW *wind)
   			      mvwaddch(wind, player.getPosY(), player.getPosX() - 1, ACS_RARROW);
     		    wattroff(wind, COLOR_PAIR(tick % 2 ? 5 : 4));
     		}
-	// usleep(10000);
 			tick++;
     		wattron(wind, COLOR_PAIR(5));
 			game.redraw();
@@ -123,6 +122,26 @@ void run(WINDOW *wind)
 				break;
 			t2 = clock() / 30000;
 		}
+	}
+	in_c = 0;
+	ex = false;
+	clear();
+	attron(COLOR_PAIR(1));
+	mvwprintw(wind, (Game::getMaxY()) / 2, (Game::getMaxX() - 10) / 2, "%s", "Game Over!");
+	mvwprintw(wind, (Game::getMaxY()) / 2  + 5, (Game::getMaxX()) / 2, "%d", player.getScore());
+	attroff(COLOR_PAIR(1));
+	refresh();
+	while (1)
+	{
+		in_c = wgetch(wind);
+		switch(in_c)
+		{
+			case 27:
+				ex = true;		
+				break ;
+		}
+		if (ex)
+			break ;
 	}
 }
 

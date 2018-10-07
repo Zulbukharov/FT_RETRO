@@ -6,7 +6,7 @@
 /*   By: azulbukh <azulbukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/07 04:40:21 by azulbukh          #+#    #+#             */
-/*   Updated: 2018/10/07 11:54:53 by azulbukh         ###   ########.fr       */
+/*   Updated: 2018/10/07 12:53:18 by azulbukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,17 @@ void	Game::redraw(void)
 	while(head)
 	{
 		mvaddch(head->getPosY(), head->getPosX(), ' ');
+		if ((head->getPosX() == _player->getPosX() + 1 &&
+		head->getPosY() == _player->getPosY()) ||
+		(head->getPosY() == _player->getPosY() + 1 &&
+		head->getPosX() == _player->getPosX()) ||
+		(head->getPosY() == _player->getPosY() - 1 &&
+		head->getPosX() == _player->getPosX()))
+		{
+			_player->setHP(_player->getHP() - 1);
+			head->setPosX(_maxX - 1);
+			head->setPosY(rand() % _maxY);
+		}
 		if (head->getPosX() <= 1)
 		{
 			head->setPosX(_maxX - 1);
@@ -107,6 +118,7 @@ void	Game::redraw(void)
 			{
 				head->setPosX(_maxX - 1);
 				head->setPosY(rand() % _maxY);
+				_player->setScore(_player->getScore() + 10);
 				mvaddch(shoots->getPosY(), shoots->getPosX(), ' ');
 				_shoots.remove(shoots);
 			}
